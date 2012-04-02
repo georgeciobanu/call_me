@@ -1,0 +1,3 @@
+rails:
+  approot: callme
+  type: ruby
