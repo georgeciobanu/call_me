@@ -45,17 +45,17 @@ class CallsController < ApplicationController
   def create
     # @call = Call.new(params[:call])
     Rails.logger.info(params)
-    # 
-    # account_sid = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    # auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
-    # 
-    # # set up a client to talk to the Twilio REST API
-    # @client = Twilio::REST::Client.new account_sid, auth_token
-    # @call = @client.account.calls.create(
-    #   :from => '+16506913178',
-    #   :to => params[:call],
-    #   :url => 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient'
-    # )
+    
+    account_sid = 'AC7826633a885d44f28853ae316329bf5c'
+    auth_token = '2c810be1942f15a9f79de953af4c6b3d'
+    
+    # set up a client to talk to the Twilio REST API
+    @client = Twilio::REST::Client.new account_sid, auth_token
+    @call = @client.account.calls.create(
+      :from => '+19133966846',
+      :to => params[:From],
+      :url => 'callme-georgeciobanu.dotcloud.com/callmetalknow'
+    )
     
 
     # respond_to do |format|

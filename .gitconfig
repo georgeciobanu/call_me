@@ -1,0 +1,38 @@
+[user]
+	name = George Ciobanu
+	email = geo.ciobanu@gmail.com
+[github]
+	user = georgeciobanu
+	token = d9ae922d64a550f858b7f5851b70a628
+[core]
+	editor = mate -wl1
+	excludesfile = /Users/george/.gitignore_global
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+  
+[alias]
+	br = branch
+	st = status
+	com = commit
+	co = checkout
+
+
