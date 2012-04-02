@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  from: MyString
+  when: 2012-04-02 00:39:44
+  what: MyString
+
+two:
+  from: MyString
+  when: 2012-04-02 00:39:44
+  what: MyString

@@ -1,4 +1,6 @@
 Callme::Application.routes.draw do
+  resources :calls, :except => [:destroy, :update, :edit, :show, :new, :index]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
