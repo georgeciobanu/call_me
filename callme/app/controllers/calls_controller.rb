@@ -54,7 +54,7 @@ class CallsController < ApplicationController
     @call = @client.account.calls.create(
       :from => '+19133966846',
       :to => params[:From],
-      :url => 'http://callme-georgeciobanu.dotcloud.com/callmetalknow'
+      :url => 'http://callme-georgeciobanu.dotcloud.com/voices.xml'
     )
     
 
