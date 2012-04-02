@@ -1,3 +1,5 @@
 rails:
   approot: callme
   type: ruby
+  config:
+      rack-env: development
