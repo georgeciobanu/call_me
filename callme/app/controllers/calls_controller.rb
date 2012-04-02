@@ -67,7 +67,7 @@ class CallsController < ApplicationController
     #     format.json { render json: @call.errors, status: :unprocessable_entity }
     #   end
     # end
-    render :json => true
+    render :json => params
   end
 
   # PUT /calls/1
