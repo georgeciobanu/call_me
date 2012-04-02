@@ -1,3 +1,6 @@
+require 'twilio-ruby'
+
+
 class CallsController < ApplicationController
   # GET /calls
   # GET /calls.json
@@ -40,18 +43,31 @@ class CallsController < ApplicationController
   # POST /calls
   # POST /calls.json
   def create
-    @call = Call.new(params[:call])
-    Rails.logger.info(@call)
+    # @call = Call.new(params[:call])
+    Rails.logger.info(params)
+    # 
+    # account_sid = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    # auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+    # 
+    # # set up a client to talk to the Twilio REST API
+    # @client = Twilio::REST::Client.new account_sid, auth_token
+    # @call = @client.account.calls.create(
+    #   :from => '+16506913178',
+    #   :to => params[:call],
+    #   :url => 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient'
+    # )
+    
 
-    respond_to do |format|
-      if @call.save
-        format.html { redirect_to @call, notice: 'Call was successfully created.' }
-        format.json { render json: @call, status: :created, location: @call }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @call.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @call.save
+    #     format.html { redirect_to @call, notice: 'Call was successfully created.' }
+    #     format.json { render json: @call, status: :created, location: @call }
+    #   else
+    #     format.html { render action: "new" }
+    #     format.json { render json: @call.errors, status: :unprocessable_entity }
+    #   end
+    # end
+    render :json => true
   end
 
   # PUT /calls/1
