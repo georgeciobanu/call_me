@@ -51,6 +51,9 @@ class CallsController < ApplicationController
     
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new account_sid, auth_token
+    
+    # Hack! A proper scheduler is required here
+    sleep(30)
     @call = @client.account.calls.create(
       :from => '+19133966846',
       :to => params[:From],
