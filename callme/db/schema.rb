@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402073944) do
+ActiveRecord::Schema.define(:version => 20120402163644) do
 
   create_table "calls", :force => true do |t|
     t.string   "from"
     t.datetime "when"
     t.string   "what"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "voices", :force => true do |t|
+    t.string   "file"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
