@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>File:</b>
+  <%= @voice.file %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @voice.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_voice_path(@voice) %> |
+<%= link_to 'Back', voices_path %>
