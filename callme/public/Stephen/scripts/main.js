@@ -6,10 +6,12 @@ require.config({
 		jquery: 'vendor/jquery.min'
 	}
 });
-require(['app'], function(app) {
-	// use app here
-	console.log(app);
-});
+
+// require(['app'], function(app) {
+// 	// use app here
+// 	console.log(app);
+// });
+
 $(document).ready(function() {
 	// Load tooltips
 	$('.tooltip2').tooltip('hide')
@@ -28,6 +30,11 @@ $(document).ready(function() {
             });
         });
     }
+    
+$(function() {
+  $('rel["clickover"]').clickover();
+});
+
 });
 
 	
@@ -54,7 +61,5 @@ $(document).ready(function() {
 
 
 
-$(function() {
-  $('rel["clickover"]').clickover();
-});
+
 	
