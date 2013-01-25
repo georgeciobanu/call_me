@@ -26,7 +26,11 @@ p,h1,h2,h3,h4,h5,h6 {
 	line-height:150%;
 }
 
-.code {font-family: "Courier New", Courier, monospace; font-size: 10px; resize: none; width: 100%;}
+.btn-group > .btn-small {font-size: 10px;}
+
+.btn-small .caret {margin: 8px 0 0 2px;}
+
+.code {font-family: "Courier New", Courier, monospace; font-size: 10px; resize: none; width: 100%; margin-bottom: 5px;}
 
 .dropdown-menu {
 	-webkit-border-radius:3px;
@@ -39,10 +43,22 @@ p,h1,h2,h3,h4,h5,h6 {
 	box-shadow:none;
 }
 
+.input-append, .input-prepend {margin-bottom: 0;}
+
+
 /* Modal */
 
 .modal-header h3 {font-size: 14px; color:#999;}
 
+
+/* Alerts */
+
+.alert {position: fixed; right:340px; top:60px; z-index: 1; margin: 0;
+	border-radius:2px;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	@include transition;
+}
 
 /*popover */
 
@@ -77,6 +93,7 @@ p,h1,h2,h3,h4,h5,h6 {
 .popover-content > p {
 	margin:0;
 }
+.popover-content p {vertical-align: top;}
 
 .popover-content > p p {
 	font-size:11px;
@@ -86,10 +103,10 @@ p,h1,h2,h3,h4,h5,h6 {
 
 .popover-content header {
 	margin:0;
-	padding:10px;
+	padding:5px;
 	background:rgba(255,255,255,0.8);
 	display:block;
-	width:215px;
+	width:225px;
 	top:-2px;
 	position:relative;
 	-webkit-border-top-left-radius:3px;
@@ -100,7 +117,7 @@ p,h1,h2,h3,h4,h5,h6 {
 	border-top-right-radius:3px;
 	border-bottom:solid 1px #ccc;
 }
-.popover-content header .span10 img {max-width: 180px;}
+.popover-content header img {max-width: 217px; display: block;}
 .popover-content header strong {
 	font-size:11px;
 	padding:0 0 0 5px;
@@ -108,7 +125,6 @@ p,h1,h2,h3,h4,h5,h6 {
 }
 
 .popover-content header small {
-	padding-left:35px;
 	color:#999;
 	margin-top:5px;
 }
@@ -118,7 +134,7 @@ p,h1,h2,h3,h4,h5,h6 {
 	line-height:130%;
 	font-weight:500;
 	margin:0;
-	padding:0 0 0 35px;
+	padding:0;
 }
 
 .fade.left .popover-content,.fade.left .popover-content p {
@@ -126,26 +142,8 @@ p,h1,h2,h3,h4,h5,h6 {
 	margin:0;
 }
 
-.popover-content nav {
-	background:rgba(0,0,0,0.1);
-}
+.popover-content .noteContent {padding: 5px;}
 
-.popover-content nav a {
-	font-size:14px;
-	display:inline-block;
-	margin:2px 6px;
-	color:#666;
-	width:25px;
-}
-
-.popover-content nav a:hover {
-	color:#222;
-	text-decoration:none;
-}
-
-.popover-content nav a:nth-child(1) {
-	margin-left:5px;
-}
 .popover-content hr {margin: 10px 0;}
 
 .popover-content small {color:#999;}
@@ -297,13 +295,17 @@ canvas.stage {
 }
 
 /*-----------DROP DOWN---------*/
-.dropdown-menu input {
-	margin-left:10px !important;
+.dropdown-menu .search input {
+	margin-left:20px !important;
 	background:#f2f2f3;
 	width: 110px;
+	padding-left: 16px;
+	margin-bottom: 5px;
 
 }
-.dropdown-menu .search i {left: 13px;}
+
+
+.dropdown-menu .search i {left: 23px; font-size: 10px; top:2px;}
 .dropdown-menu input:focus {
 	background:#fff;
 }
@@ -417,9 +419,9 @@ form {
 
 .sidePanel .createModule .icon-notes {position: absolute; color: #DDD; font-size: 36px; margin-top: 22px; right:50px;}
 
-
-
-
+.sharePopWin {left:auto !important; right: 10px !important;}
+.sharePopWin.popover.bottom .arrow {margin-left: 40px !important;}
+.sharePopWin h6 {margin: 0; font-size: 10px; color: #333;}
 .sidePanel .createModule form textarea {
 	margin:5px 0 0 0 ;
 	resize:none;
@@ -435,11 +437,15 @@ form {
 .sidePanel .createModule .btn-info, .sidePanel .createModule .btn-success {text-align: left; padding-left: 10px;}
 
 
-.sidePanel .createModule  .btn-info i {font-size: 15px; margin-right: 7px; margin-top: 1px;}
-.sidePanel .createModule .btn-success i {font-size: 18px; margin-right: 7px; margin-top: 0px;}
-.sidePanel .createModule .btn-inverse i { color:$yellow;  }
-.sidePanel .createModule .btn-inverse i.icon-share {font-size: 22px;margin-top: 4px; margin-left: 7px;}
-.sidePanel .createModule .btn-inverse i.icon-screenshot {font-size: 14px; margin-top: 5px; margin-left: 6px; }
+.sidePanel .createModule  .btn-info i {font-size: 15px; margin-right: 9px; position: relative; margin-left: -5px; margin-top: 1px;}
+.sidePanel .createModule .btn-success i {font-size: 18px; margin-right: 8px; position: relative; margin-left: -3px; margin-top: 0px;}
+.sidePanel .createModule .btn-inverse i { color:rgba(255,255,255,0.9);  }
+.sidePanel .createModule .btn-inverse:hover i { color:$yellow;  }
+
+.sidePanel .createModule .btn-inverse i.icon-share {font-size: 22px;margin-top: 4px; margin-left: 8px;}
+.sidePanel .createModule .btn-inverse i.icon-screenshot {font-size: 22px; margin-top: 6px; margin-left: 6px; }
+
+
 
 /* ---------- Modules Global Styling ----------*/
 .module {
@@ -513,6 +519,36 @@ margin-left: 27px; font-size: 11px;}
 	
 }
 
+.overflowVisible {overflow: visible !important;}
+
+#team .nav-header {font-size: 12px; color: #666; font-weight: 600; text-transform: none;}
+
+/*----- File Uploader -----*/
+
+#loadModels {width: 1000px; margin-left: -500px; overflow: hidden;}
+
+#loadModels .modal-body {max-height: 640px; overflow: hidden;}
+
+#loadModels.modal.fade.in {top:35%;}
+
+.upload-model {width:100%; height: 500px; text-align: center; border: dashed 1px #CCC;}
+.upload-model i {
+	font-size: 300px;
+width: 400px;
+height: 400px;
+text-align: center;
+color: #f2f2f3;
+position: absolute;
+left: 50%;
+margin-left: -200px;
+display: block;
+margin-top: 200px;
+display: block;
+	
+}
+.upload-model h4 {font-size: 24px; color:#999; margin-top: 450px;}
+
+
 /* ---------- Notes Module Styling ----------*/
 .note-sum {
 	background:#FFF;
@@ -523,9 +559,6 @@ margin-left: 27px; font-size: 11px;}
 	@include transition;
 }
 
-.new,.new .pin {
-	background:#FDFFE7;
-}
 
 .note-sum:hover {
 	box-shadow:$bot-shadow;
@@ -577,27 +610,33 @@ margin-left: 27px; font-size: 11px;}
 .pic.small:hover .picTools {height: 20px;}
 
 .pin {
-	position:absolute;
-	width:20px;
-	height:20px;
-	border-radius:20px;
-	-webkit-border-radius:20px;
-	-moz-border-radius:20px;
-	border:solid 1px #ccc;
-	background:#FFF;
-	right:5px;
-	bottom:5px;
+	
+	width:24px;
+	height:24px;
+	border-radius:24px;
+	-webkit-border-radius:24px;
+	-moz-border-radius:24px;
+	background:#555;
+	
 	text-align:center;
 	vertical-align:middle;
 	line-height:20px;
 	@include transition;
+	-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);
 }
 
 .pin i {
-	margin:0;
+	margin:5px 0 0 0;
 	font-size:13px;
-	color:#999;
+	color:#FFF;
+	@include transition;
 }
+.pin:hover {background: $orange; width:30px;
+	height:30px;
+	border-radius:30px;
+	-webkit-border-radius:30px;
+	-moz-border-radius:30px; }
+.pin:hover i {-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg); font-size: 18px; margin-top: 8px; }
 
 .thumb-sum {
 	-webkit-transition:all .3s ease;
@@ -717,16 +756,14 @@ margin-left: 27px; font-size: 11px;}
 
 
 
-#noteFullView .modal-body > .container-fluid .row-fluid > .span4 {background: #eee; position: relative; border: solid 1px #ccc;}
-
-
-#noteFullView .modal-body > .container-fluid .row-fluid > .span4 .btn.span6, #noteFullView .modal-body > .container-fluid .row-fluid > .span4 .span6 .input-block-level {text-align: left;}
-
-#noteFullView .modal-body > .container-fluid .row-fluid > .span4 > div {padding: 10px;}
-#noteFullView .modal-body > .container-fluid .row-fluid > .span4 hr {margin: 0;}
+.noteTools {background: #eee; position: relative; border: solid 1px #ccc;}
+.noteTools .btn.span6, .noteTools .span6 .input-block-level {text-align: left;}
+.noteTools > div {padding: 10px;}
+#noteFullView .noteTools hr {margin: 0;}
 #noteFullView hr {margin: 10px 0;}
 
-#noteFullView .modal-body > .container-fluid .row-fluid > .span4 > div .btn i {font-size: 14px; color:#666; margin-right: 5px; display: inline-block;}
+.noteTools .btn i {font-size: 14px; color:#666; margin-right: 5px; display: inline-block;}
+.noteTools .btn i.icon-task {font-size: 12px; margin-top: 3px;}
 
 .noteID {width: 600px; padding: 10px;}
 .noteID > img {margin:10px 0 20px 0; width: 580px;}
@@ -747,6 +784,31 @@ resize: none;
 .noteFeed .comment input:active {background: #FFF; }
 
 .noteFeed .pic {max-width:300px;}
+
+.noteTools .delete .btn:hover i {color:$red;}
+.noteTools :hover i {color:$blue;}
+
+.remove-pin {position: relative;}
+.remove-pin .icon-delete {
+position: absolute;
+	left: 11px;
+top: 7px;
+font-size: 18px !important;
+opacity: 0.3;
+-webkit-opacity: 0.3;
+-moz-opacity: 0.3;
+color: $red !important;
+
+}
+.remove-pin .icon-pin {-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg); }
+.remove-pin:hover .icon-pin {color: $red;}
+.remove-pin:hover .icon-delete {opacity: 0.4;
+-webkit-opacity: 0.4;
+-moz-opacity: 0.4;}
+
+
+
+
 /*----- Assign Note----*/
 .assignNote > .clearfix {margin-top: 10px;}
 .assignNote .clearfix .popover2 img {height: 30px; margin:0 5px 5px 0;}
@@ -755,6 +817,7 @@ resize: none;
 .assignNote .dropdown-menu a {}
 
 .add-on .icon-duedate {margin: 3px; font-size: 18px; color: #666;}
+.add-on:hover .icon-duedate {color: $blue;}
 
 .done-true {
   text-decoration: line-through;
@@ -778,8 +841,9 @@ resize: none;
 	 color: #FFF;
 }
 .pic .picTools span {margin: 5px; font-size:12px; display: inline-block;}
-.pic .picTools a {color: #CCC; display: inline-block; margin: 7px; font-size: 14px;}
-.pic .picTools a:hover {text-decoration: none; color: #FFF;}
+.pic .picTools a {color: #FFF; display: inline-block; margin: 7px; font-size: 14px;}
+.pic .picTools a:hover {text-decoration: none; color: $blue;}
+a:hover .icon-delete {color:$red;}
 .pic .picTools .pull-right {margin-right: 15px;}
 
 .pic:hover .picTools {height: 30px;}
@@ -857,6 +921,4 @@ resize: none;
 
 /* eof Side Panel */
 
-.upload-model {width:100%; height: 300px; text-align: center; border: dashed 1px #CCC;}
-.upload-model i {font-size: 160px; width: 200px; height: 200px; text-align: center; color:#f2f2f3; position: absolute; left:50%; margin-left: -118px; display:block; margin-top: 80px;}
-.upload-model h4 {font-size: 24px; color:#999; margin-top: 250px;}
+
