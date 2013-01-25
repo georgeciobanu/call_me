@@ -10,11 +10,23 @@ body {
 	color:#1F1F1F;
 }
 
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+  margin-top: 1px;
+}
+
 p,h1,h2,h3,h4,h5,h6 {
 	line-height:150%;
 }
 
-
+.code {font-family: "Courier New", Courier, monospace; font-size: 10px; resize: none; width: 100%;}
 
 .dropdown-menu {
 	-webkit-border-radius:3px;
@@ -75,7 +87,7 @@ p,h1,h2,h3,h4,h5,h6 {
 .popover-content header {
 	margin:0;
 	padding:10px;
-	background:#FFF;
+	background:rgba(255,255,255,0.8);
 	display:block;
 	width:215px;
 	top:-2px;
@@ -134,8 +146,7 @@ p,h1,h2,h3,h4,h5,h6 {
 .popover-content nav a:nth-child(1) {
 	margin-left:5px;
 }
-
-.popover-content .noteContent .row-fluid {border-bottom: dotted 1px #ccc;}
+.popover-content hr {margin: 10px 0;}
 
 .popover-content small {color:#999;}
 
@@ -264,9 +275,11 @@ canvas.stage {
 
 .topNav #addSpaceInput button {margin: 3px;}
 
+.topNav .share {margin: 4px;}
+
 /*profile */
 .profile {
-	margin:2px 310px 0 0!important;
+	margin:2px 325px 0 0!important;
 }
 
 .profile img {
@@ -358,8 +371,9 @@ canvas.stage {
 	-webkit-box-shadow:-2px 0 3px rgba(0,0,0,0.2);
 	-moz-box-shadow:-2px 0 3px rgba(0,0,0,0.2);
 	border-left:solid 1px #ccc;
-	padding:140px 10px 140px 0;
-	overflow:auto;
+	padding:90px 10px 140px 0;
+	overflow-y:auto;
+	overflow-x: visible;
 }
 
 .sidePanel .btn-inverse i {
@@ -374,9 +388,16 @@ canvas.stage {
 	position:relative;
 }
 
+.sliderPanel {height: 100%; width: 10px; position: absolute; background: rgba(0,0,0,0.1); z-index: 100; right: 313px; @include transition; cursor: pointer;}
+
+.sliderPanel:hover {background: rgba(0,0,0,0.2);}
+
 /* ---------- Creation Module ----------*/
+
+
+
 .sidePanel .createModule {
-	background:rgba(255,255,255,0.9);
+	background:rgba(0,0,0,0.7);
 	padding:5px 15px 5px 5px;
 	border-bottom:solid 1px #ccc;
 	box-shadow:$bot-shadow;
@@ -392,23 +413,33 @@ canvas.stage {
 form {
 	margin:0;
 }
+.pinTools {margin-top: 5px;}
 
-.sidePanel .createModule .span5 .btn i {font-size: 15px; color: #666;}
-.sidePanel .createModule .span5 .btn .icon-screenshot {margin-top: 0px; margin-left: -5px;}
+.sidePanel .createModule .icon-notes {position: absolute; color: #DDD; font-size: 36px; margin-top: 22px; right:50px;}
+
+
+
+
 .sidePanel .createModule form textarea {
-	margin:5px 0;
+	margin:5px 0 0 0 ;
 	resize:none;
+	padding-right: 50px;
+	@include transition;
+	height: 50px;
+	background: #f2f2f3;
 }
 
-.sidePanel .createModule .btn-inverse {
-	text-align:left;
-	padding-left:30px;
-	padding-right:18px;
-}
+.sidePanel .createModule form textarea:hover {background: #FFF;}
+.sidePanel .createModule form textarea:focus {height: 80px; background: #FFF;}
 
-.sidePanel .createModule .row-fluid {position: relative;}
-.sidePanel .createModule .btn-small i {font-size: 13px; color: #666;}
-.sidePanel .createModule .btn-small {margin-right: 3px;}
+.sidePanel .createModule .btn-info, .sidePanel .createModule .btn-success {text-align: left; padding-left: 10px;}
+
+
+.sidePanel .createModule  .btn-info i {font-size: 15px; margin-right: 7px; margin-top: 1px;}
+.sidePanel .createModule .btn-success i {font-size: 18px; margin-right: 7px; margin-top: 0px;}
+.sidePanel .createModule .btn-inverse i { color:$yellow;  }
+.sidePanel .createModule .btn-inverse i.icon-share {font-size: 22px;margin-top: 4px; margin-left: 7px;}
+.sidePanel .createModule .btn-inverse i.icon-screenshot {font-size: 14px; margin-top: 5px; margin-left: 6px; }
 
 /* ---------- Modules Global Styling ----------*/
 .module {
@@ -468,6 +499,20 @@ form {
 .popover.top {width: 180px;
 margin-left: 27px; font-size: 11px;}
 
+.userThumb {position: relative;}
+.userThumb img {position: relative; z-index: 200; height: 40px;}
+.userDetail {
+	position: absolute; 
+	background: #FFF; 
+	border:solid 1px #CCC; 
+	top:-10px; left: -10px; 
+	z-index: 100;
+	width:180px;
+	height: 60px;
+	padding: 10px 10px 10px 70px;
+	
+}
+
 /* ---------- Notes Module Styling ----------*/
 .note-sum {
 	background:#FFF;
@@ -525,7 +570,11 @@ margin-left: 27px; font-size: 11px;}
 	-moz-opacity:1;
 }
 
-.note-sum .img-polaroid {margin: 0 0 10px 0; display: block; width: 140px;}
+.pic.small {width: 140px;}
+.pic.small .picTools .pull-right {margin-right: 2px;}
+.pic.small .picTools .pull-right a {font-size: 10px; margin: 0;}
+.pic.small .picTools span {font-size: 10px; width:80px; margin: 0 0 0 5px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.pic.small:hover .picTools {height: 20px;}
 
 .pin {
 	position:absolute;
@@ -654,35 +703,50 @@ margin-left: 27px; font-size: 11px;}
 
 /* ---------- Note Full View Styling ----------*/
 
-#noteFullView {width: 900px; margin: 0 0 0 -450px; height: 80%; top: 10%;}
+#noteFullView {
+	width: 1040px; margin-left: -520px; padding:0; height: 700px;
+	border-radius:3px;
+	-webkit-border-radius:3px; 
+	-moz-border-radius:3px;
+	background: #f2f2f3;
+}
+
+#noteFullView.modal.fade.in {top:36%;}
+
+#noteFullView .modal-body {max-height: 690px; padding-top: 0;}
 
 
 
-#noteFullView .modal-body {max-height: 560px;}
+#noteFullView .modal-body > .container-fluid .row-fluid > .span4 {background: #eee; position: relative; border: solid 1px #ccc;}
 
+
+#noteFullView .modal-body > .container-fluid .row-fluid > .span4 .btn.span6, #noteFullView .modal-body > .container-fluid .row-fluid > .span4 .span6 .input-block-level {text-align: left;}
+
+#noteFullView .modal-body > .container-fluid .row-fluid > .span4 > div {padding: 10px;}
+#noteFullView .modal-body > .container-fluid .row-fluid > .span4 hr {margin: 0;}
 #noteFullView hr {margin: 10px 0;}
 
-.noteID {width: 580px;}
-.noteID > img {margin:10px 0 20px 0; width: 560px;}
+#noteFullView .modal-body > .container-fluid .row-fluid > .span4 > div .btn i {font-size: 14px; color:#666; margin-right: 5px; display: inline-block;}
+
+.noteID {width: 600px; padding: 10px;}
+.noteID > img {margin:10px 0 20px 0; width: 580px;}
 .noteID small {color: #999;}
-.noteID h4 {margin: 0;}
+.noteID h4 {margin: 0; width: 540px; font-size: 20px; line-height: 130%; font-weight: 500;}
 .noteFeed .container-fluid {margin: 10px 0; padding: 0;}
 .noteFeed .container-fluid .row-fluid {margin-bottom: 10px;}
-.noteFeed .container-fluid p {margin: 0;}
+.noteFeed .container-fluid p {margin: 0; font-size: 13px;}
 .noteFeed .container-fluid .row-fluid small {color: #999;}
-.noteFeed  textarea {
-	width: 560px;
-height: 20px;
+.noteFeed  .comment input  {
+	width: 500px;
+height: 30px;
 background: #f2f2f3;
 @include transition;
 resize: none;
 }
-.noteFeed  textarea:hover {background: #FFF;}
-.noteFeed  textarea:focus {height: 50px;}
+.noteFeed .comment input:hover {background: #FFF; }
+.noteFeed .comment input:active {background: #FFF; }
 
-.noteFeed .img-polaroid {max-width:200px; display: block; margin: 5px 0;}
-
-
+.noteFeed .pic {max-width:300px;}
 /*----- Assign Note----*/
 .assignNote > .clearfix {margin-top: 10px;}
 .assignNote .clearfix .popover2 img {height: 30px; margin:0 5px 5px 0;}
@@ -690,7 +754,35 @@ resize: none;
 .assignNote .dropdown-menu li {}
 .assignNote .dropdown-menu a {}
 
-.add-on .icon-duedate {margin: 3px;}
+.add-on .icon-duedate {margin: 3px; font-size: 18px; color: #666;}
+
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+
+
+.pic {position: relative; display: block; cursor: pointer; margin: 10px 0;}
+
+.pic .picTools {
+	position: absolute; 
+	height: 0;
+	width: 100%; 
+	background: rgba(0,0,0,0.8);
+	left: 5px;
+	bottom: 4px;
+	z-index: 100;
+	text-align: left;
+	 @include transition;
+	 overflow: hidden;
+	 color: #FFF;
+}
+.pic .picTools span {margin: 5px; font-size:12px; display: inline-block;}
+.pic .picTools a {color: #CCC; display: inline-block; margin: 7px; font-size: 14px;}
+.pic .picTools a:hover {text-decoration: none; color: #FFF;}
+.pic .picTools .pull-right {margin-right: 15px;}
+
+.pic:hover .picTools {height: 30px;}
 
 /* ---------- Model Module Styling ----------*/
 

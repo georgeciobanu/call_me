@@ -1,47 +1,45 @@
-require.config({
-	shim: {},
-	paths: {
-		hm: 'vendor/hm',
-		esprima: 'vendor/esprima',
-		jquery: 'vendor/jquery.min'
-	}
-});
-
-// require(['app'], function(app) {
-// 	// use app here
-// 	console.log(app);
-// });
-
 $(document).ready(function() {
 	// Load tooltips
 	$('.tooltip2').tooltip('hide')
 	// Load popovers
-	$('.popover2').popover('hide')
+	$('.popover2').popover({ 
+		trigger: "hover",
+		delay: 300, 
+	})
 	
-	$("a[rel=popover]").click(function(event){
-    if(event.which == 1)
-    {   
-        $thisPopOver = $(this);
-        $thisPopOver.popover('toggle');
-        $thisPopOver.parent("li").click(function(event){
-            event.stopPropagation();
-            $("html").click(function(){
-                $thisPopOver.popover('hide');
-            });
-        });
-    }
-    
-$(function() {
-  $('rel["clickover"]').clickover();
-});
-
-});
-
+	$('.popover3').popover({ 
+		trigger: "click",
+		delay: 100, 
+	})
+	
+	$('.modal2').click(function() {
+	  $('.popover2').popover('hide');
+	});
+	
+	
+	// Show pin button on textarea focus
+	$('#createNote').focus(function() {
+	  $('.pinTools').removeClass('hide');
+	});
+	
+	$('#createNote').focusout(function() {
+	  $('.pinTools').addClass('hide');
+	});
+	
+	
+	$('.userThumb').click(function() {
+	  $('.userDetail').toggleClass('hide');
+	});
+	
+	
+	
 	
 	//Hide Module Button
 	$('.hide-module').click('hide')
 	var bodyheight = $(document).height();
 	$(".sidePanel").height(bodyheight);
+	
+	
 	//Typeahead
 	var subjects = ['Status Open', 'Status Close', 'Assigned to John Doe', 'Assigned to Bill McCoy', 'Assigned to John Malkovich', 'Due Today', 'Due Tomorrow', 'Due Next Week', 'Past Due', 'Tag A', 'Tag B', 'Tag C', 'is pinned', 'is not pinned'];
 	$('#search').typeahead({
